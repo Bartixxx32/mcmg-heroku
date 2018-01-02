@@ -1,0 +1,38 @@
+{
+  "name": "MCHostPanel",
+  "description": "Host your Spigot server via the web",
+  "keywords": [
+    "games",
+    "minecraft"
+  ],
+  "repository": "https://github.com/GGJohny/heroku-buildpack-spigot",
+  "env": {
+    "MINECRAFT_EULA": {
+      "description": "Do you accept the Minecraft EULA?",
+      "value": "true"
+    },
+    "SERVER_FOLDER": {
+      "description": "Name of the folder to store the server stuffs",
+      "required": true
+    },
+    "NGROK_API_TOKEN": {
+      "description": "ngrok API token - expose localhost",
+      "required": true
+    },
+    "DROPBOX_KEY": {
+      "description": "Dropbox API token - syncing server files",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-jvm-common"
+    },
+    {
+      "url": "https://github.com/kr/heroku-buildpack-inline.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    }
+  ]
+}
